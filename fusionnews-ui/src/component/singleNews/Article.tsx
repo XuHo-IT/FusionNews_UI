@@ -48,31 +48,28 @@ const Article = () => {
 
           <p>{newsList[0].description}</p>
 
-          {newsList[0].imageUrl && (
-            <img
-              className="img-fluid w-50 float-left mr-4 mb-2"
-              src={newsList[0].imageUrl || imgNews}
-              alt={newsList[0].title}
-            />
-          )}
-
-          <p>
-            Source:{" "}
-            <a
-              href={newsList[0].sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {newsList[0].sourceName}
-            </a>
-          </p>
+          {newsList[0].imageUrl ||
+            (imgNews && (
+              <img
+                className="img-fluid w-50 float-left mr-4 mb-2"
+                src={newsList[0].imageUrl || imgNews}
+                alt={newsList[0].title}
+              />
+            ))}
 
           <h5 className="text-uppercase font-weight-bold mb-3">
-            By: {newsList[0].creatorDisplay || newsList[0].creator?.join(", ")}
+            Uploaded By:{" "}
+            {newsList[0].creatorDisplay === "unknown"
+              ? "anonymous user"
+              : newsList[0].creatorDisplay ||
+                (newsList[0].creator && newsList[0].creator.join(", ")) ||
+                "anonymous user"}
           </h5>
 
           <div className="d-flex justify-content-between bg-white border border-top-0 p-4 mt-3">
             <div className="d-flex align-items-center">
+              <h5>Coming From: </h5>
+
               <img
                 className="rounded-circle mr-2"
                 src={newsList[0].sourceIcon || imgNews}
@@ -80,16 +77,22 @@ const Article = () => {
                 height="25"
                 alt="author/source"
               />
-              <span>{newsList[0].sourceId}</span>
+              <a
+                href={newsList[0].sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {newsList[0].sourceName}
+              </a>
             </div>
-            <div className="d-flex align-items-center">
+            {/* <div className="d-flex align-items-center">
               <span className="ml-3">
                 <i className="far fa-eye mr-2"></i>Views N/A
               </span>
               <span className="ml-3">
                 <i className="far fa-comment mr-2"></i>Comments N/A
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
       )}
