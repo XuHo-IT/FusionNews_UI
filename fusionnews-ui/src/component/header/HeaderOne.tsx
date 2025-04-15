@@ -6,10 +6,15 @@ const HeaderOne = () => {
 
     const currentDate = new Date();
 
-    const formatDate = (date) =>{
-        const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+    const formatDate = (date: Date): string => {
+        const options: Intl.DateTimeFormatOptions = { 
+          weekday: 'long', 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric' 
+        };
         return date.toLocaleDateString('en-US', options);
-    }
+      }
 
   return (
     <div className="container-fluid d-none d-lg-block">
@@ -59,12 +64,12 @@ const HeaderOne = () => {
         </div>
         <div className="row align-items-center bg-white py-3 px-lg-5">
             <div className="col-lg-4">
-                <NavLink href="index.html" className="navbar-brand p-0 d-none d-lg-block">
+                <NavLink to="index.html" className="navbar-brand p-0 d-none d-lg-block">
                     <h1 className="m-0 display-4 text-uppercase text-primary">Biz<span className="text-secondary font-weight-normal">News</span></h1>
                 </NavLink>
             </div>
             <div className="col-lg-8 text-center text-lg-right">
-                <NavLink href="https://htmlcodex.com"><img className="img-fluid" src="img/ads-728x90.png" alt=""/></NavLink>
+                <NavLink to="https://htmlcodex.com"><img className="img-fluid" src="img/ads-728x90.png" alt=""/></NavLink>
             </div>
         </div>
     </div>

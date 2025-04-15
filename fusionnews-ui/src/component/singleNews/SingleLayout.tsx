@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 import SocialMedia from '../social/SocialMedia'
-
-
 import NewsLetter from '../social/NewsLetter'
 import Tags from '../social/Tags'
 import Advertisement from '../social/advertisement'
@@ -18,16 +16,16 @@ const SingleLayout = () => {
     return (
         <>
         <HeadLine/>
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
+        <div className="container-fluid">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-8">
                         <Article/>
                         <CommentList/>
                         <CommentForm/>
                     </div>
 
-                    <div class="col-lg-4">
+                    <div className="col-lg-4">
                     <SocialMedia />
                     <Advertisement />
                     <Trending/>

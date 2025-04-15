@@ -39,20 +39,20 @@ const ContactForm = () => {
                             <div className="form-row">
                                 <div className="col-md-6">
                                     <div className="form-group">
-                                        <input type="text" className="form-control p-4" placeholder="Your Name" required="required"/>
+                                        <input type="text" className="form-control p-4" placeholder="Your Name" required/>
                                     </div>
                                 </div>
                                 <div className="col-md-6">
                                     <div className="form-group">
-                                        <input type="email" className="form-control p-4" placeholder="Your Email" required="required"/>
+                                        <input type="email" className="form-control p-4" placeholder="Your Email" required/>
                                     </div>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <input type="text" className="form-control p-4" placeholder="Subject" required="required"/>
+                                <input type="text" className="form-control p-4" placeholder="Subject" required/>
                             </div>
                             <div className="form-group">
-                                <textarea className="form-control" rows="4" placeholder="Message" required="required"></textarea>
+                            <textarea className="form-control" rows={4} placeholder="Message" required></textarea>
                             </div>
                             <div>
                                 <button className="btn btn-primary font-weight-semi-bold px-4" style={{height: "50px"}}
