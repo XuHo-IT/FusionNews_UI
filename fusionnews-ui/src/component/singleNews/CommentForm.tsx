@@ -11,25 +11,25 @@ const CommentForm = () => {
                                 <div className="form-row">
                                     <div className="col-sm-6">
                                         <div className="form-group">
-                                            <label for="name">Name *</label>
+                                            <label htmlFor="name">Name *</label>
                                             <input type="text" className="form-control" id="name"/>
                                         </div>
                                     </div>
                                     <div className="col-sm-6">
                                         <div className="form-group">
-                                            <label for="email">Email *</label>
+                                            <label htmlFor="email">Email *</label>
                                             <input type="email" className="form-control" id="email"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="form-group">
-                                    <label for="website">Website</label>
+                                    <label htmlFor="website">Website</label>
                                     <input type="url" className="form-control" id="website"/>
                                 </div>
 
                                 <div className="form-group">
-                                    <label for="message">Message *</label>
-                                    <textarea id="message" cols="30" rows="5" className="form-control"></textarea>
+                                    <label htmlFor="message">Message *</label>
+                                    <textarea id="message" cols={30} rows={5} className="form-control"></textarea>
                                 </div>
                                 <div className="form-group mb-0">
                                     <input type="submit" value="Leave a comment"

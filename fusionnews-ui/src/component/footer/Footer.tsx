@@ -100,7 +100,7 @@ const Footer = () => {
         <p className="m-0 text-center">&copy; <NavLink to="/">Your Site Name</NavLink>. All Rights Reserved. 
 		
 
-		Design by <NavLink href="https://htmlcodex.com">HTML Codex</NavLink></p>
+		Design by <NavLink to="https://htmlcodex.com">HTML Codex</NavLink></p>
     </div>
    
     </div>
