@@ -8,4 +8,6 @@
 *** UPDATE 1 ***
 1. Install bootstrap again because of bug
 2. Add font awesome link into public/index.html
+3. Uninstall react-owl-carousel
+4. Install react-slick
 
