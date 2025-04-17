@@ -9,3 +9,6 @@
 1. Install bootstrap again because of bug
 2. Add font awesome link into public/index.html
 
+
+### UDDATE 2 ###
+1. Uninstall owl-carousel because React 18+ does not support, instead using react-slick
