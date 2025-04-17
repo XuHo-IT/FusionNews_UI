@@ -1,8 +1,11 @@
+import CategoryLayout from '../component/category/CategoryLayout'
 import React from 'react'
 
 const Category = () => {
   return (
-    <div>Category</div>
+    <div>
+      <CategoryLayout/>
+    </div>
   )
 }
 
