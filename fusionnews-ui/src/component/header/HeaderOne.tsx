@@ -1,20 +1,17 @@
 import React from 'react'
 import './headerOne.css'
 import { NavLink } from 'react-router-dom'
+import adImg from '../../assets/images/ads.png'
 
 const HeaderOne = () => {
 
     const currentDate = new Date();
 
     const formatDate = (date: Date): string => {
-        const options: Intl.DateTimeFormatOptions = { 
-          weekday: 'long', 
-          year: 'numeric', 
-          month: 'long', 
-          day: 'numeric' 
-        };
+        const options: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         return date.toLocaleDateString('en-US', options);
-      }
+    };
+    
 
   return (
     <div className="container-fluid d-none d-lg-block">
@@ -69,7 +66,7 @@ const HeaderOne = () => {
                 </NavLink>
             </div>
             <div className="col-lg-8 text-center text-lg-right">
-                <NavLink to="https://htmlcodex.com"><img className="img-fluid" src="img/ads-728x90.png" alt=""/></NavLink>
+                <NavLink to="https://htmlcodex.com"><img className="img-fluid" src={adImg} alt=""/></NavLink>
             </div>
         </div>
     </div>
