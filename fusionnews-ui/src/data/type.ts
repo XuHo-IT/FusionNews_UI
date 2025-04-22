@@ -20,3 +20,7 @@ export interface INews{
         category: string[];
         duplicate: boolean;        
 }
+export interface IQuestions{
+        questionId : string;
+        question: string;
+}
