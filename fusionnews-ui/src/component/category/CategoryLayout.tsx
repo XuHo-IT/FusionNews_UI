@@ -1,7 +1,7 @@
 import React from 'react'
 import SocialMedia from '../social/SocialMedia'
 import Advertisement from '../social/advertisement'
-import Trending from '../social/Trending'
+// import Trending from '../social/Trending'
 import NewsLetter from '../social/NewsLetter'
 import Tags from '../social/Tags'
 import Content1 from '../content/Content1'
@@ -26,7 +26,7 @@ const CategoryLayout = () => {
                         <div className="col-lg-4">
                             <SocialMedia />
                             <Advertisement />
-                            <Trending />
+                            {/* <Trending /> */}
                             <NewsLetter />
                             <Tags />
                         </div>
