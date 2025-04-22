@@ -9,8 +9,13 @@ import imgNews5 from '../../assets/images/news-700x435-5.jpg'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import { useSelector } from 'react-redux'
+import { RootState } from 'redux/store';
+import { translations } from 'helpers/languageMap';
+
 
 const FeaturedNews = () => {
+  const language = useSelector((state: RootState) => state.language.language);
   const settings = {
     dots: false,
     infinite: true,
@@ -43,7 +48,7 @@ const FeaturedNews = () => {
     <div className="container-fluid pt-5 mb-3">
       <div className="container">
         <div className="section-title">
-          <h4 className="m-0 text-uppercase font-weight-bold">Featured News</h4>
+          <h4 className="m-0 text-uppercase font-weight-bold">   {translations[language as 'en' | 'vi'].featuredNews}         </h4>
         </div>
         <Slider {...settings}>
           {newsItems.map((item) => (

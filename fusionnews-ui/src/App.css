@@ -40,3 +40,16 @@
     transform: rotate(360deg);
   }
 }
+
+/*Theme */
+
+
+.App.dark{
+  background-color: #111;
+}
+
+.App.light {
+  background-color: #fff;
+}
+
+

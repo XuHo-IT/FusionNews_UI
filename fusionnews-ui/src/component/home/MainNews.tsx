@@ -11,8 +11,12 @@ import imgNews6 from '../../assets/images/news-700x435-3.jpg'
 import imgNews7 from '../../assets/images/news-700x435-4.jpg'
 
 import '../home/home.css'
-
+import { useSelector } from "react-redux";
+import { RootState } from "redux/store";
+import { translations } from "helpers/languageMap";
 const MainNews = () => {
+      const language = useSelector((state: RootState) => state.language.language);
+    
     const mainSliderSettings = {
         dots: false,
         infinite: true,
@@ -100,7 +104,7 @@ const MainNews = () => {
                     <div className="row align-items-center bg-dark">
                         <div className="col-12">
                             <div className="d-flex justify-content-between">
-                                <div className="bg-primary text-dark text-center font-weight-medium py-2" style={{ width: "170px" }}>Breaking News</div>
+                                <div className="bg-primary text-dark text-center font-weight-medium py-2" style={{ width: "170px" }}> {translations[language as "en" | "vi"].breaking_news}</div>
                                 <div className="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center ml-3"
                                     style={{ width: "calc(100% - 170px)", paddingRight: "90px" }}>
                                     <div className="text-truncate"><NavLink className="text-white text-uppercase font-weight-semi-bold" to="/">Lorem ipsum dolor sit amet elit. Proin interdum lacus eget ante tincidunt, sed faucibus nisl sodales</NavLink></div>

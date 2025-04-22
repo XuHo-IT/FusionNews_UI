@@ -1,9 +1,12 @@
 import React from 'react'
-
 import './headerOne.css'
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux';
+import { RootState } from 'redux/store';
+import { translations } from 'helpers/languageMap';
 
 const HeaderTwo = () => {
+const language = useSelector((state: RootState) => state.language.language);
     return (
         <section>
             <div className="container-fluid p-0">
@@ -19,17 +22,17 @@ const HeaderTwo = () => {
                             <NavLink
                                 to="/"
                                 className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}>
-                                Home
+                              {translations[language as 'en' | 'vi'].home}                         
                             </NavLink>
                             <NavLink
                                 to="/category"
                                 className={({isActive}) => `nav-item nav-link ${isActive ? 'active': ''}`}>
-                                Category
+                                    {translations[language as 'en' | 'vi'].category}          
                             </NavLink>
                             <NavLink
                                 to="/singleNews"
                                 className={({isActive}) => `nav-item nav-link ${isActive ? 'active' : ''}`}>
-                                Single News
+                                 {translations[language as 'en' | 'vi'].singleNews}        
                             </NavLink>
                             {/* <div className="nav-item dropdown">
                                 <NavLink to="/singleNews" className="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</NavLink>
@@ -42,7 +45,7 @@ const HeaderTwo = () => {
                             <NavLink
                                 to="/contact"
                                 className={({isActive}) => `nav-item nav-link ${isActive ? 'active' : ''}`}>
-                                Contact
+                                 {translations[language as 'en' | 'vi'].contact}        
                             </NavLink>
                         </div>
                         <div className="input-group ml-auto d-none d-lg-flex" style={{ width: "100%", maxWidth: "300px" }}>
