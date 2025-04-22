@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import adImg from '../../assets/images/ads.png'
 import userImg from '../../assets/images/user.jpg'
 import newsImg1 from '../../assets/images/news-700x435-5.jpg'
 import newsImg2 from '../../assets/images/news-110x110-1.jpg'
@@ -12,7 +11,6 @@ const Content3 = () => {
     return (
         <>
             <div className="col-lg-12 mb-3">
-                <NavLink to="/"><img className="img-fluid w-100" src={adImg} alt=""/></NavLink>
             </div>
             <div className="col-lg-12">
                 <div className="row news-lg mx-0 mb-3">

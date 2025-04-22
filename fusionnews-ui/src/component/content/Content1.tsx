@@ -3,18 +3,22 @@ import { NavLink } from 'react-router-dom'
 import newImg1 from '../../assets/images/news-700x435-1.jpg'
 import newImg2 from '../../assets/images/news-700x435-2.jpg'
 import userImg from '../../assets/images/user.jpg'
-
+import { useSelector } from "react-redux";
+import { RootState } from "redux/store";
+import { translations } from "helpers/languageMap";
 interface Content1Props{
     title: string;
 }
 
 const Content1: React.FC<Content1Props> = ({title}) => {
+  const language = useSelector((state: RootState) => state.language.language);
+
     return (
         <>
             <div className="col-12">
                 <div className="section-title">
                     <h4 className="m-0 text-uppercase font-weight-bold">{title}</h4>
-                    <NavLink className="text-secondary font-weight-medium text-decoration-none" to="/">View All</NavLink>
+                    <NavLink className="text-secondary font-weight-medium text-decoration-none" to="/"> {translations[language as "en" | "vi"].view_all}</NavLink>
                 </div>
             </div>
             <div className="col-lg-6">

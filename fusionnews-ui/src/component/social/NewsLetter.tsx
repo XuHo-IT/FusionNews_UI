@@ -1,11 +1,16 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { RootState } from 'redux/store';
+import { translations } from 'helpers/languageMap';
 
 const NewsLetter = () => {
+  const language = useSelector((state: RootState) => state.language.language);
+
     return (
 
         <div className="mb-3">
             <div className="section-title mb-0">
-                <h4 className="m-0 text-uppercase font-weight-bold">Newsletter</h4>
+                <h4 className="m-0 text-uppercase font-weight-bold">{translations[language as 'en' | 'vi'].newsletter}   </h4>
             </div>
             <div className="bg-white text-center border border-top-0 p-3">
                 <p>Aliqu justo et labore at eirmod justo sea erat diam dolor diam vero kasd</p>

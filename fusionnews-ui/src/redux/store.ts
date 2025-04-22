@@ -1,6 +1,8 @@
 import {configureStore, ThunkAction, Action} from '@reduxjs/toolkit'
 import newsReducer from './news/news.slide'
 import chatbotReducer from './chatbot/chatbot.slide'
+import uiReducer from './theme/theme.slide'
+import languageReducer from './language/language.slide'
 import createSagaMiddleWare from 'redux-saga'
 import RootSaga from 'saga/root.saga'
 
@@ -10,6 +12,8 @@ export const store = configureStore({
     reducer:{
         news:newsReducer,
         chatbot:chatbotReducer,
+        theme:uiReducer,
+        language:languageReducer,
     },
     middleware:getdefaultMiddleware =>
         getdefaultMiddleware().concat(sageMiddleware),
