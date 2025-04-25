@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
 .App {
   text-align: center;
@@ -43,13 +41,47 @@
 
 /*Theme */
 
-
-.App.dark{
+.App.dark {
   background-color: #111;
 }
+
+.App.dark .bg-color {
+  background-color: #111;
+  color: white;
+}
+.App.dark .text-color {
+  color: white !important;
+}
+.App.dark .text-color:hover {
+  background-color: #ffcc00 !important;
+  color: #111 !important;
+}
+.App.dark .navbar-dark .navbar-nav .nav-link:hover,
+.App.dark .navbar-dark .navbar-nav .nav-link.active {
+  color: #111 !important;
+  background: #ffcc00 !important;
+}
+.App.dark .logo-text-color {
+  color: #ffcc00 !important;
+}
+.App.dark .search-color {
+  background-color: #111 !important;
+}
+.App.dark .search-color i {
+  color: #fff;
+}
+.App.dark .search-color:hover {
+  background-color: #ffcc00 !important;
+}
+.App.dark .search-color i:hover {
+  color: #111;
+}
+
 
 .App.light {
   background-color: #fff;
 }
-
-
+.App.light .text-color:hover {
+  background-color: #111 !important;
+  color: #fff !important;
+}

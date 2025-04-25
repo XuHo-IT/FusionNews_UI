@@ -6079,12 +6079,6 @@
     background-color: #FFCC00 !important;
   }
   
-  a.bg-primary:hover, a.bg-primary:focus,
-  button.bg-primary:hover,
-  button.bg-primary:focus {
-    background-color: #cca300 !important;
-  }
-  
   .bg-secondary {
     background-color: #31404B !important;
   }
@@ -6138,17 +6132,6 @@
   .bg-light {
     background-color: #FFFFFF !important;
   }
-  
-  a.bg-light:hover, a.bg-light:focus,
-  button.bg-light:hover,
-  button.bg-light:focus {
-    background-color: #e6e6e6 !important;
-  }
-  
-  .bg-dark {
-    background-color: #1E2024 !important;
-  }
-  
   a.bg-dark:hover, a.bg-dark:focus,
   button.bg-dark:hover,
   button.bg-dark:focus {
@@ -9308,15 +9291,6 @@
   a.text-dark:hover, a.text-dark:focus {
     color: black !important;
   }
-  
-  .text-body {
-    color: #9A9DA2 !important;
-  }
-  
-  .text-muted {
-    color: #6c757d !important;
-  }
-  
   .text-black-50 {
     color: rgba(0, 0, 0, 0.5) !important;
   }
@@ -9495,12 +9469,6 @@
     outline: none;
   }
   
-  .navbar-dark .navbar-nav .nav-link:hover,
-  .navbar-dark .navbar-nav .nav-link.active {
-    color: #1E2024;
-    background: #FFCC00;
-  }
-  
   @media (max-width: 991.98px) {
     .navbar-dark .navbar-nav .nav-link {
       padding: 8px 15px;
@@ -9657,4 +9625,41 @@
     padding: 0;
     list-style-type: none;
   }
-  
+  /* fix header and theme */
+    
+  a.bg-light:hover, a.bg-light:focus,
+  button.bg-light:hover,
+  button.bg-light:focus {
+    background-color: #e6e6e6 ;
+  }
+  .bg-color{
+    background-color: #D6E6F2;
+  }
+  .search-color i{
+    color: white;
+  }
+.search-color:hover{
+  background-color: #111 !important;
+}
+.text-body {
+  color: #9A9DA2;
+}
+.text-color{
+  color: #9A9DA2;
+}
+.logo-text-color{
+  color: #D6E6F2 !important;
+}
+.text-muted {
+  color: #6c757d !important;
+}
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: white !important;
+  background: #111 !important;
+}
+a.bg-primary:hover, a.bg-primary:focus,
+button.bg-primary:hover,
+button.bg-primary:focus {
+  background-color: #111 !important;
+}
