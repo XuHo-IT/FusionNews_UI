@@ -1,6 +1,7 @@
 import {configureStore, ThunkAction, Action} from '@reduxjs/toolkit'
 import newsReducer from './news/news.slide'
-import chatbotReducer from './chatbot/chatbot.slide'
+import questionsReducer from './chatbot/questions.slide'
+import answersReducer from './chatbot/answers.slide'
 import uiReducer from './theme/theme.slide'
 import languageReducer from './language/language.slide'
 import createSagaMiddleWare from 'redux-saga'
@@ -11,7 +12,8 @@ const sageMiddleware = createSagaMiddleWare();
 export const store = configureStore({
     reducer:{
         news:newsReducer,
-        chatbot:chatbotReducer,
+        questions: questionsReducer,
+        answers: answersReducer,
         theme:uiReducer,
         language:languageReducer,
     },
