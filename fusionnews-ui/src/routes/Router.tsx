@@ -3,7 +3,7 @@ import Footer from '../component/footer/Footer';
 import HeaderOne from '../component/header/HeaderOne';
 import HeaderTwo from '../component/header/HeaderTwo';
 import Home from '../pages/Home';
-import Category from '../pages/Category';
+import NewsAgency from '../pages/NewsAgency';
 import SingleNews from '../pages/SingleNews';
 import Contact from '../pages/Contact'
 import { Route, Routes } from 'react-router-dom';
@@ -16,7 +16,7 @@ const Router = () => {
      <HeaderTwo/>
      <Routes>
       <Route path='/' element={<Home/>}/>
-      <Route path='/category' element={<Category/>}/>
+      <Route path='/newsAgency' element={<NewsAgency/>}/>
       <Route path='/singleNews' element={<SingleNews/>}/>
       <Route path='/contact' element={<Contact/>}/>
      </Routes>

@@ -8,12 +8,13 @@ import Footer from "./component/footer/Footer";
 import HeaderOne from "./component/header/HeaderOne";
 import HeaderTwo from "./component/header/HeaderTwo";
 import Home from "./pages/Home";
-import Category from "./pages/Category";
+import NewsAgency from "./pages/NewsAgency";
 import SingleNews from "./pages/SingleNews";
 import Contact from "./pages/Contact";
 import React from "react";
 import Theme from "./helpers/theme/ThemeLayout";
 import Language from "./helpers/language/Languagelayout";
+import Forum from "./pages/Forum";
 
 
 const App: FC = () => {
@@ -27,8 +28,9 @@ const App: FC = () => {
       <HeaderTwo />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/category" element={<Category />} />
-        <Route path="/singleNews" element={<SingleNews />} />
+        <Route path="/newsAgency" element={<NewsAgency />} />
+        <Route path="/newsAgency/singleNews" element={<SingleNews />} />    {/* using "/newsAgency/singleNews" to show singleNews is child of newsAgency */}
+        <Route path="/forum" element={<Forum/>}/>
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
