@@ -1,12 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { INews } from "data/type";
+import { INewList, INews } from "data/type";
 
 export interface NewsState {
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
-  newsList: INews[];
+  newsList: INewList;
   news: INews;
-  filterOn?: string;
   filterRequest?: string;
   pageNumber?: number;
   pageSize?: number;
@@ -15,43 +14,56 @@ export interface NewsState {
 const initialState: NewsState = {
   status: 'idle',
   error: null,
-  newsList: [],
+  newsList: {
+    newsApiResponse: {
+      status: '',
+      totalResults: 0,
+      articles: []
+    },
+    totalPages: 0,
+    currentPage: 1,
+    pageSize: 10,
+    totalResults: 0
+  },
   news: {
-    articleId: '',
+    source: {
+      id: '',
+      name: '',
+    },
+    author: '',
     title: '',
-    link: '',
-    keywords: [],
-    creator: [],
-    creatorDisplay: '',
     description: '',
-    pubDate: '',
-    pubDateTZ: '',
-    imageUrl: '',
-    videoUrl: null,
-    sourceId: '',
-    sourceName: '',
-    sourcePriority: 0,
-    sourceUrl: '',
-    sourceIcon: '',
-    language: '',
-    country: [],
-    category: [],
-    duplicate: false,
-  }
+    url: '',
+    urlToImage: '',
+    publishedAt: '',
+    content: '',
+  },
+  filterRequest: "america",
+  pageSize: 10,
 };
 
 const NewsSlice = createSlice({
   name: 'news',
   initialState,
   reducers: {
-    fetchNewsRequest: (state, action: PayloadAction<{ filterOn?: string }>) => {
+    fetchNewsRequest: (state, action: PayloadAction<{
+      filterRequest?: string;
+      pageNumber?: number;
+      pageSize?: number;
+    }>) => {
       state.status = 'loading';
       state.error = null;
-      if (action.payload?.filterOn) {
-        state.filterOn = action.payload.filterOn;  // Store filterOn in the state (optional)
+      if (action.payload?.filterRequest) {
+        state.filterRequest = action.payload.filterRequest;
+      }
+      if (action.payload?.pageNumber) {
+        state.pageNumber = action.payload.pageNumber;
+      }
+      if (action.payload?.pageSize) {
+        state.pageSize = action.payload.pageSize;
       }
     },
-    fetchNewsSuccess: (state, action: PayloadAction<{ newsList: INews[] }>) => {
+    fetchNewsSuccess: (state, action: PayloadAction<{ newsList: INewList }>) => {
       state.status = 'succeeded';
       state.newsList = action.payload.newsList;
     },
@@ -64,7 +76,7 @@ const NewsSlice = createSlice({
       state.news = action.payload;
     }
   }
-  
+
 });
 
 export const {
