@@ -10,7 +10,7 @@ import Content1 from "../content/Content1";
 import Content2 from "../content/Content2";
 import Content3 from "../content/Content3";
 import MainNews from "./MainNews";
-// import ChatBot from 'component/chatbot/ChatBotLayout'
+import ChatBot from 'component/chatbot/ChatBotLayout'
 
 const HomeLayout = () => {
   return (
@@ -34,7 +34,7 @@ const HomeLayout = () => {
               {/* <Trending /> */}
               <NewsLetter />
               <Tags />
-              {/* <ChatBot/> */}
+              <ChatBot/>
             </div>
           </div>
         </div>

@@ -1,0 +1,14 @@
+.content-card{
+    line-height: 20px;
+}
+
+.section-news-agency {
+    margin-bottom: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #FFFFFF;
+    border: 1px solid #dee2e6;
+    
+  }

@@ -8,8 +8,9 @@ import Content1 from '../content/Content1'
 import Content2 from '../content/Content2'
 import Content3 from '../content/Content3'
 import './category.css'
+import DemoContent1 from './DemoContent1'
 
-const CategoryLayout = () => {
+const NewsAgencyLayout = () => {
     return (
         <>
             <div className="container-fluid mt-5 pt-3">
@@ -17,9 +18,10 @@ const CategoryLayout = () => {
                     <div className="row">
                         <div className="col-lg-8">
                             <div className="row">
-                                <Content1 title="Category: Business"/>
+                                <DemoContent1 title="Top 5 News Agency"/>
+                                {/* <Content1 title="Top 10 News Agency"/>
                                 <Content2/>
-                                <Content3/>
+                                <Content3/> */}
                             </div>
                         </div>
 
@@ -37,4 +39,4 @@ const CategoryLayout = () => {
     )
 }
 
-export default CategoryLayout
+export default NewsAgencyLayout

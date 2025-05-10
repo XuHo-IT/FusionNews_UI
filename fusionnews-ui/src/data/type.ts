@@ -24,3 +24,7 @@ export interface IQuestions{
         questionId : string;
         question: string;
 }
+export interface IAnswer{
+        questionId : string;
+        answer: string;
+}

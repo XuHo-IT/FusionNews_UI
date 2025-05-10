@@ -1,8 +1,8 @@
 export const translations= {
     en: {
       home: 'Home',
-      category: 'Category',
-      singleNews: 'Single News',
+      newsAgency: 'News Agency',
+      forum: 'Forum',
       contact: 'Contact',
       featuredNews : 'Feature News',
       advertisement: 'Advertisement',
@@ -26,8 +26,8 @@ export const translations= {
     },
     vi: {
       home: 'Trang chủ',
-      category: 'Thể loại',
-      singleNews: 'Tin chi tiết',
+      newsAgency: 'Đầu báo',
+      forum: 'Diễn đàn',
       contact: 'Liên hệ',
       featuredNews :'Tin tức nổi bật',
       advertisement: 'Quảng cáo',

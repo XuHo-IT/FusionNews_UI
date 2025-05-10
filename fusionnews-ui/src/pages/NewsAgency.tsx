@@ -1,10 +1,10 @@
-import CategoryLayout from '../component/category/CategoryLayout'
+import NewsAgencyLayout from '../component/newsAgency/NewsAgencyLayout'
 import React from 'react'
 
 const Category = () => {
   return (
     <div>
-      <CategoryLayout/>
+      <NewsAgencyLayout/>
     </div>
   )
 }
