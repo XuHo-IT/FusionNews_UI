@@ -31,19 +31,12 @@
 ### 🎨 Frontend
 
 - **React.js**
-
 - **CSS / Google Fonts**
-
 - **Bootstrap**
-
 - **React Router (react-router-dom)**
-
 - **React Icons (Font Awesome)**
-
 - **React Slick (Carousel/Slider)**
-
 - **Redux & Redux-Saga**
-
 - **Atomic Design (Component Structure)**
 
 ---
