@@ -50,17 +50,22 @@ Before starting, ensure that you have the following installed on your system:
 1. **Node.js**  
    Node.js is a JavaScript runtime required to run the application.
 
-   - **Download Node.js**:  
-     Go to the official Node.js website and download the LTS (Long Term Support) version:  
+   - **Download Node.js**:
+  
+     Go to the official Node.js website and download the LTS (Long Term Support) version:
+     
      [Download Node.js](https://nodejs.org)
 
-2. **npm (Node Package Manager)**  
+2. **npm (Node Package Manager)**
+   
    npm comes with Node.js and is used to install and manage dependencies.
 
    - You can verify if **Node.js** and **npm** are already installed by running the following commands in your terminal:
-    
+     
+     ```bash
      node -v
      npm -v
+     ```
      
      If both commands return versions, you are good to go!
 
