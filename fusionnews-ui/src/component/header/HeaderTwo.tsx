@@ -1,6 +1,6 @@
 import React from 'react'
 import './headerOne.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
 import { translations } from 'helpers/languageMap';
@@ -25,14 +25,14 @@ const language = useSelector((state: RootState) => state.language.language);
                               {translations[language as 'en' | 'vi'].home}                         
                             </NavLink>
                             <NavLink
-                                to="/category"
+                                to="/newsAgency"
                                 className={({isActive}) => `text-color nav-item nav-link ${isActive ? 'active': ''}`}>
-                                    {translations[language as 'en' | 'vi'].category}          
+                                    {translations[language as 'en' | 'vi'].newsAgency}          
                             </NavLink>
                             <NavLink
-                                to="/singleNews"
+                                to="/forum"
                                 className={({isActive}) => `text-color nav-item nav-link ${isActive ? 'active' : ''}`}>
-                                 {translations[language as 'en' | 'vi'].singleNews}        
+                                 {translations[language as 'en' | 'vi'].forum}        
                             </NavLink>
                             {/* <div className="nav-item dropdown">
                                 <NavLink to="/singleNews" className="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</NavLink>
