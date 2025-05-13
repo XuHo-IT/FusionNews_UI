@@ -1,20 +1,18 @@
 // src/App.tsx
-import { FC } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { FC } from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "./redux/store";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./component/footer/Footer";
 import HeaderOne from "./component/header/HeaderOne";
 import HeaderTwo from "./component/header/HeaderTwo";
+import Theme from "./helpers/theme/ThemeLayout";
+import Contact from "./pages/Contact";
+import Forum from "./pages/Forum";
 import Home from "./pages/Home";
 import NewsAgency from "./pages/NewsAgency";
 import SingleNews from "./pages/SingleNews";
-import Contact from "./pages/Contact";
-import React from "react";
-import Theme from "./helpers/theme/ThemeLayout";
-import Language from "./helpers/language/Languagelayout";
-import Forum from "./pages/Forum";
+import { RootState } from "./redux/store";
 
 
 const App: FC = () => {
@@ -22,9 +20,10 @@ const App: FC = () => {
 
   return (
     <div className={`App ${theme}`}>
-      <Theme/>
-      <Language/>
       <HeaderOne />
+      <div className="helper">
+        <Theme/>
+      </div>
       <HeaderTwo />
       <Routes>
         <Route path="/" element={<Home />} />
