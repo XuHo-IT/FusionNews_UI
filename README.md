@@ -140,32 +140,6 @@ The project follows the **Atomic Design** pattern and uses **Redux-Saga** for st
 
 ---
 
-## 🔁 Update Log
-
-### 📌 Initial Setup
-
-- ✅ Installed Bootstrap and configured in index.js
-
-- ✅ Installed react-router-dom
-
-- ✅ Imported Google Fonts
-
-- ✅ Installed Font Awesome via react-icons
-
-- ✅ Installed react-owl-carousel
-
-### 📌 Update 1
-
-- 🔁 Reinstalled Bootstrap due to a bug
-
-- ➕ Added Font Awesome CDN to public/index.html
-
-- ❌ Removed react-owl-carousel
-
-- ✅ Installed react-slick for carousel
-
----
-
 ## 🚀 Run the Project
 
 Once you have installed all the dependencies, you can start the development server to view the project locally. Follow these steps:
