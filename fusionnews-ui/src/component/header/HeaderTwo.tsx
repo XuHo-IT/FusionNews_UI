@@ -49,7 +49,7 @@ const language = useSelector((state: RootState) => state.language.language);
                             </NavLink>
                         </div>
                         <div className="input-group ml-auto d-none d-lg-flex" style={{ width: "100%", maxWidth: "300px" }}>
-                            <input type="text" className="form-control border-0" placeholder="Keyword" />
+                            <input type="text" className="form-control border-0"   placeholder={translations[language as 'en' | 'vi'].keyword} />
                             <div className="input-group-append">
                                 <button className="input-group-text bg-primary search-color border-0 px-3"><i
                                     className="fa fa-search"></i></button>
