@@ -1,12 +1,16 @@
-import NewsAgencyLayout from '../component/newsAgency/NewsAgencyLayout'
-import React from 'react'
+import NewsAgencyLayout from "../component/newsAgency/NewsAgencyLayout";
+import React from "react";
 
-const Category = () => {
-  return (
-    <div>
-      <NewsAgencyLayout/>
-    </div>
-  )
+interface NewsAgencyProps {
+  inpuSearch: string;
 }
 
-export default Category
+const Category: React.FC<NewsAgencyProps> = ({ inpuSearch }) => {
+  return (
+    <div>
+      <NewsAgencyLayout inpuSearch={inpuSearch} />
+    </div>
+  );
+};
+
+export default Category;

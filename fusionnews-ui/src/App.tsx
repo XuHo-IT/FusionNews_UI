@@ -12,24 +12,32 @@ import Forum from "./pages/Forum";
 import Home from "./pages/Home";
 import NewsAgency from "./pages/NewsAgency";
 import SingleNews from "./pages/SingleNews";
+import Language from "./helpers/language/Languagelayout";
 import { RootState } from "./redux/store";
-
 
 const App: FC = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
 
+  const [inputSearch, setInputSearch] = React.useState("");
+
   return (
     <div className={`App ${theme}`}>
+      <Theme />
+      <Language />
       <HeaderOne />
       <div className="helper">
-        <Theme/>
+        <Theme />
       </div>
-      <HeaderTwo />
+      <HeaderTwo inpuSearch={inputSearch} onSetInputSearch={setInputSearch} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/newsAgency" element={<NewsAgency />} />
-        <Route path="/newsAgency/singleNews" element={<SingleNews />} />    {/* using "/newsAgency/singleNews" to show singleNews is child of newsAgency */}
-        <Route path="/forum" element={<Forum/>}/>
+        <Route
+          path="/newsAgency"
+          element={<NewsAgency inpuSearch={inputSearch} />}
+        />
+        <Route path="/newsAgency/singleNews" element={<SingleNews />} />{" "}
+        {/* using "/newsAgency/singleNews" to show singleNews is child of newsAgency */}
+        <Route path="/forum" element={<Forum />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />

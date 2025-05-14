@@ -1,95 +1,170 @@
-import React, {useState} from 'react'
-import { NavLink } from 'react-router-dom'
-import newImg1 from '../../assets/images/news-700x435-1.jpg'
-import newImg2 from '../../assets/images/news-700x435-2.jpg'
-import userImg from '../../assets/images/user.jpg'
-import { useSelector } from "react-redux";
-import { RootState } from "redux/store";
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchNewsRequest } from "../../redux/news/news.slide";
+import { RootState } from "../../redux/store";
 import { translations } from "helpers/languageMap";
-import './demoContent1.css'
-
-interface NewsItem {
-    title: string;
-    date: string;
-    description: string;
-    image: string;
-  }
+import { v4 as uuidv4 } from "uuid";
+import "./demoContent1.css";
 
 interface DemoContent1Props {
-    title: string;
+  title: string;
+  inpuSearch: string;
 }
 
-const DemoContent1: React.FC<DemoContent1Props> = ({ title }) => {
-    const language = useSelector((state: RootState) => state.language.language);
-    const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 5;
+const DemoContent1: React.FC<DemoContent1Props> = ({ title, inpuSearch }) => {
+  const language = useSelector((state: RootState) => state.language.language);
+  const dispatch = useDispatch();
+  const { newsList, status, error } = useSelector(
+    (state: RootState) => state.news
+  );
 
-    const newsList: NewsItem[] = Array.from({ length: 18 }, (_, i) => ({
-        title: `Hello World ${i + 1}`,
-        date: '01-05-2025 15:00',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur obcaecati voluptate quae dolorum dolorem beatae nisi.',
-        image: newImg2
-    }));
+  // Initialize states
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize] = useState(10);
 
-    const totalPages = Math.ceil(newsList.length / itemsPerPage);
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = newsList.slice(indexOfFirstItem, indexOfLastItem);
+  // Effect to fetch news when parameters change
+  useEffect(() => {
+    dispatch(
+      fetchNewsRequest({
+        filterRequest: inpuSearch,
+        pageNumber: currentPage,
+        pageSize,
+      })
+    );
+  }, [dispatch, currentPage, pageSize, inpuSearch]);
 
-    const handlePageChange = (page: number) => {
-        if (page >= 1 && page <= totalPages) {
-            setCurrentPage(page);
-        }
-    };
+  const handlePageChange = (page: number) => {
+    if (page >= 1 && page <= newsList.totalPages) {
+      setCurrentPage(page);
+    }
+  };
 
-    return (
-        <>
-            <div className="col-12">
-                <div className="section-title">
-                    <h4 className="m-0 text-uppercase font-weight-bold">{title}</h4>
-                </div>
-            </div>
+  const totalPages = newsList.totalPages;
+  const totalResults = newsList.totalResults;
 
+  if (status === "loading")
+    return <div className="text-center">Loading news...</div>;
+  if (status === "failed")
+    return <div className="text-center text-danger">Error: {error}</div>;
+  if (!newsList?.newsApiResponse?.articles?.length)
+    return <div className="text-center">No articles found</div>;
 
-            {currentItems.map((item, index) => (
-        <div className="col-12 mt-3" key={index}>
-          <div className="section-news-agency d-flex">
-            <div className="col-md-4">
-              <img className="img-fluid w-100" src={item.image} style={{ objectFit: "cover" }} alt="" />
-            </div>
-            <div className="col-md-8 text-start content-card">
-              <h5><NavLink to="/newsAgency/singleNews">{item.title}</NavLink></h5>
-              <p>{item.date}</p>
-              <p>{item.description}</p>
+  return (
+    <>
+      <div className="col-12">
+        <div className="section-title">
+          <h4 className="m-0 text-uppercase font-weight-bold">{title}</h4>
+        </div>
+      </div>
+
+      {newsList.newsApiResponse.articles.map((news, index) => {
+        console.log("rendering news:", news);
+        return (
+          <div className="col-12 mt-3" key={news.source.name}>
+            <div className="section-news-agency d-flex">
+              <div className="col-md-4">
+                <img
+                  className="img-fluid w-100"
+                  src={news.urlToImage}
+                  style={{ objectFit: "cover" }}
+                  alt={news.title}
+                />
+              </div>
+              <div className="col-md-8 text-start content-card">
+                <h5>
+                  <NavLink to={`/singleNews/${news.source.id}`}>
+                    {news.title}
+                  </NavLink>
+                </h5>
+                <p>{new Date(news.publishedAt).toLocaleDateString()}</p>
+                <p>{news.description}</p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
 
-
-            {/* Pagination */}
-            <div className="col-12 d-flex justify-content-center my-3">
-                <nav>
-                    <ul className="pagination">
-                        <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
-                            <button className="page-link" onClick={() => handlePageChange(currentPage - 1)}>Previous</button>
-                        </li>
-                        {[...Array(totalPages)].map((_, i) => (
-                            <li key={i} className={`page-item ${currentPage === i + 1 ? 'active' : ''}`}>
-                                <button className="page-link" onClick={() => handlePageChange(i + 1)}>{i + 1}</button>
-                            </li>
-                        ))}
-                        <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
-                            <button className="page-link" onClick={() => handlePageChange(currentPage + 1)}>Next</button>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-
-
-
-        </>
-    )
-}
+      {/* Pagination */}
+      <div className="col-12 d-flex justify-content-center my-3">
+        <nav>
+          <ul className="pagination">
+            <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
+              <button
+                className="page-link"
+                onClick={() => handlePageChange(currentPage - 1)}
+              >
+                Previous
+              </button>
+            </li>
+            {currentPage > 5 && (
+              <>
+                <li className="page-item">
+                  <button
+                    className="page-link"
+                    onClick={() => handlePageChange(1)}
+                  >
+                    1
+                  </button>
+                </li>
+                <li className="page-item">
+                  <button className="page-link">...</button>
+                </li>
+              </>
+            )}
+            {[...Array(totalPages)].map((_, i) => {
+              if (currentPage > 5 && i + 1 === 1) return;
+              // if (currentPage !== totalPages && i + 1 === totalPages) return;
+              if (i + 1 <= currentPage + 5 && i + 1 >= currentPage - 5) {
+                return (
+                  <li
+                    key={i}
+                    className={`page-item ${
+                      currentPage === i + 1 ? "active" : ""
+                    }`}
+                  >
+                    <button
+                      className="page-link"
+                      onClick={() => handlePageChange(i + 1)}
+                    >
+                      {i + 1}
+                    </button>
+                  </li>
+                );
+              }
+            })}
+            {currentPage < totalPages - 5 && (
+              <>
+                <li className="page-item">
+                  <button className="page-link">...</button>
+                </li>
+                <li className="page-item">
+                  <button
+                    className="page-link"
+                    onClick={() => handlePageChange(totalPages)}
+                  >
+                    {totalPages}
+                  </button>
+                </li>
+              </>
+            )}
+            <li
+              className={`page-item ${
+                currentPage === totalPages ? "disabled" : ""
+              }`}
+            >
+              <button
+                className="page-link"
+                onClick={() => handlePageChange(currentPage + 1)}
+              >
+                Next
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </>
+  );
+};
 
 export default DemoContent1;
