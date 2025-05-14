@@ -23,6 +23,8 @@ export const translations= {
       contact_form_send_message:'Send Message',
       view_all:'View All',
       breaking_news:'Breaking News',
+      login:'Login',
+       keyword: 'Keyword',
     },
     vi: {
       home: 'Trang chủ',
@@ -48,7 +50,8 @@ export const translations= {
       contact_form_send_message:'Gửi',
       view_all:'Xem tất cả',
       breaking_news:'Tin nóng',
-
+      login:'Đăng nhập',
+  keyword: 'Từ khóa',
     },
   };
   
