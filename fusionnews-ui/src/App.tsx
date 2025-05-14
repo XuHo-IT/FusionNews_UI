@@ -16,21 +16,26 @@ import Theme from "./helpers/theme/ThemeLayout";
 import Language from "./helpers/language/Languagelayout";
 import Forum from "./pages/Forum";
 
-
 const App: FC = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
 
+  const [inputSearch, setInputSearch] = React.useState("");
+
   return (
     <div className={`App ${theme}`}>
-      <Theme/>
-      <Language/>
+      <Theme />
+      <Language />
       <HeaderOne />
-      <HeaderTwo />
+      <HeaderTwo inpuSearch={inputSearch} onSetInputSearch={setInputSearch} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/newsAgency" element={<NewsAgency />} />
-        <Route path="/newsAgency/singleNews" element={<SingleNews />} />    {/* using "/newsAgency/singleNews" to show singleNews is child of newsAgency */}
-        <Route path="/forum" element={<Forum/>}/>
+        <Route
+          path="/newsAgency"
+          element={<NewsAgency inpuSearch={inputSearch} />}
+        />
+        <Route path="/newsAgency/singleNews" element={<SingleNews />} />{" "}
+        {/* using "/newsAgency/singleNews" to show singleNews is child of newsAgency */}
+        <Route path="/forum" element={<Forum />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
