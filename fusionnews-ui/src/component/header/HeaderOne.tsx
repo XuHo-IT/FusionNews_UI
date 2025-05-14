@@ -1,16 +1,26 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Language from "../../helpers/language/Languagelayout";
+import { useSelector } from 'react-redux';
+import { translations } from 'helpers/languageMap';
+import { RootState } from 'redux/store';
 import './headerOne.css';
 
 const HeaderOne = () => {
+const language = useSelector((state: RootState) => state.language.language);
 
     const currentDate = new Date();
 
-    const formatDate = (date: Date): string => {
-        const options: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        return date.toLocaleDateString('en-US', options);
+const formatDate = (date: Date, locale: string): string => {
+    const options: Intl.DateTimeFormatOptions = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'  
     };
+    return date.toLocaleDateString(locale, options);
+};
+
     
 
   return (
@@ -20,16 +30,17 @@ const HeaderOne = () => {
                 <nav className="navbar navbar-expand-sm bg-color p-0">
                     <ul className="navbar-nav ml-n2">
                         <li className="nav-item border-right border-secondary">
-                            <NavLink className="nav-link text-body small text-color" to="/">{formatDate(currentDate)}</NavLink>
+                            <NavLink className="nav-link text-body small text-color" to="/">{formatDate(currentDate, language === 'vi' ? 'vi-VN' : 'en-US')}
+</NavLink>
                         </li>
                         <li className="nav-item border-right border-secondary">
-                            <NavLink className="nav-link text-body small text-color" to="/">Advertise</NavLink>
+                            <NavLink className="nav-link text-body small text-color" to="/"> {translations[language as 'en' | 'vi'].advertisement}</NavLink>
                         </li>
                         <li className="nav-item border-right border-secondary">
-                            <NavLink className="nav-link text-body small text-color" to="/">Contact</NavLink>
+                            <NavLink className="nav-link text-body small text-color" to="/"> {translations[language as 'en' | 'vi'].contact}       </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link text-body small text-color" to="/">Login</NavLink>
+                            <NavLink className="nav-link text-body small text-color" to="/">{translations[language as 'en' | 'vi'].login}  </NavLink>
                         </li>
                     </ul>
                 </nav>
