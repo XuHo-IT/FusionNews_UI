@@ -1,7 +1,7 @@
-import React from 'react'
-import './headerOne.css'
-import { NavLink } from 'react-router-dom'
-import adImg from '../../assets/images/ads.png'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import Language from "../../helpers/language/Languagelayout";
+import './headerOne.css';
 
 const HeaderOne = () => {
 
@@ -15,7 +15,7 @@ const HeaderOne = () => {
 
   return (
     <div className="container-fluid d-none d-lg-block">
-        <div className="row align-items-center bg-color px-lg-5">
+        <div className="row align-items-center bg-color px-lg-3">
             <div className="col-lg-9 bg-color">
                 <nav className="navbar navbar-expand-sm bg-color p-0">
                     <ul className="navbar-nav ml-n2">
@@ -54,6 +54,9 @@ const HeaderOne = () => {
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link text-body text-color" to="/"><small className="fab fa-youtube"></small></NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <Language/>
                         </li>
                     </ul>
                 </nav>

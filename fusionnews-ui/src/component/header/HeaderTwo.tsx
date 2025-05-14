@@ -1,16 +1,16 @@
-import React from 'react'
-import './headerOne.css'
-import { NavLink, useLocation } from 'react-router-dom'
-import { useSelector } from 'react-redux';
-import { RootState } from 'redux/store';
 import { translations } from 'helpers/languageMap';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { RootState } from 'redux/store';
+import './headerOne.css';
 
 const HeaderTwo = () => {
 const language = useSelector((state: RootState) => state.language.language);
     return (
         <section >
             <div className="container-fluid p-0 ">
-                <nav className="navbar bg-color  navbar-expand-lg navbar-dark py-2 py-lg-0 px-lg-5">
+                <nav className="navbar bg-color  navbar-expand-lg navbar-dark py-2 py-lg-0 px-lg-3">
                     <NavLink to="index.html" className="navbar-brand d-block d-lg-none">
                         <h1 className="m-0 display-4 text-uppercase text-primary">Biz<span className="text-white font-weight-normal">News</span></h1>
                     </NavLink>
