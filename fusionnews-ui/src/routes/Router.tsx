@@ -13,7 +13,7 @@ const Router = () => {
   return (
     <div>
       <HeaderOne />
-      <HeaderTwo inpuSearch="" onSetInputSearch={() => { }} />
+      <HeaderTwo inpuSearch="" onSetInputSearch={() => {}} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/newsAgency" element={<NewsAgency inpuSearch="" />} />
