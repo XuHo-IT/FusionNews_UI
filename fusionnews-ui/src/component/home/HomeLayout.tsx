@@ -33,7 +33,7 @@ const HomeLayout = () => {
               <Advertisement />
               {/* <Trending /> */}
               <NewsLetter />
-              <Tags />
+              {/* <Tags /> */}
               <ChatBot/>
             </div>
           </div>

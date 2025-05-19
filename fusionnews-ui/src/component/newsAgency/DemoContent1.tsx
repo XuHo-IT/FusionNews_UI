@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchNewsRequest } from "../../redux/news/news.slide";
 import { RootState } from "../../redux/store";
 import { translations } from "helpers/languageMap";
-import { v4 as uuidv4 } from "uuid";
 import "./demoContent1.css";
 
 interface DemoContent1Props {
@@ -66,7 +65,11 @@ const DemoContent1: React.FC<DemoContent1Props> = ({ title, inpuSearch }) => {
               <div className="col-md-4">
                 <img
                   className="img-fluid w-100"
-                  src={news.urlToImage}
+                  src={
+                      news.urlToImage
+                        ? news.urlToImage
+                        : "/src/assets/images/hot_new.jpg"
+                    }
                   style={{ objectFit: "cover" }}
                   alt={news.title}
                 />
