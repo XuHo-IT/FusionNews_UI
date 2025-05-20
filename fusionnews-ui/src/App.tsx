@@ -22,8 +22,8 @@ const App: FC = () => {
 
   return (
     <div className={`App ${theme}`}>
-      <Theme />
-      <Language />
+      {/* <Theme />
+      <Language /> */}
       <HeaderOne />
       <div className="helper">
         <Theme />

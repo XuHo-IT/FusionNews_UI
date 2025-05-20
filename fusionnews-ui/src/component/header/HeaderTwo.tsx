@@ -63,14 +63,14 @@ const HeaderTwo: React.FC<HeaderTwoProps> = ({
               >
                 {translations[language as "en" | "vi"].newsAgency}
               </NavLink>
-              <NavLink
+              {/* <NavLink
                 to="/forum"
                 className={({ isActive }) =>
                   `text-color nav-item nav-link ${isActive ? "active" : ""}`
                 }
               >
                 {translations[language as "en" | "vi"].forum}
-              </NavLink>
+              </NavLink> */}
               {/* <div className="nav-item dropdown">
                                 <NavLink to="/singleNews" className="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</NavLink>
                                 <div className="dropdown-menu rounded-0 m-0">
@@ -96,7 +96,7 @@ const HeaderTwo: React.FC<HeaderTwoProps> = ({
                 <input
                   type="text"
                   className="form-control border-0"
-                  placeholder="Keyword"
+                  placeholder={translations[language as "en" | "vi"].keyword}
                   value={inputEl}
                   onChange={(e) => setInputEl(e.target.value)}
                 />

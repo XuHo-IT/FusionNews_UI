@@ -6,6 +6,7 @@ import { RootState } from "../../redux/store";
 import { translations } from "helpers/languageMap";
 import "./demoContent1.css";
 
+
 interface DemoContent1Props {
   title: string;
   inpuSearch: string;

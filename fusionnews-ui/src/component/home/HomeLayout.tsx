@@ -11,8 +11,13 @@ import Content2 from "../content/Content2";
 import Content3 from "../content/Content3";
 import MainNews from "./MainNews";
 import ChatBot from 'component/chatbot/ChatBotLayout'
+import { useSelector } from "react-redux";
+import { RootState } from "redux/store";
+import { translations } from "helpers/languageMap";
 
 const HomeLayout = () => {
+    const language = useSelector((state: RootState) => state.language.language);
+  
   return (
     <div>
       <MainNews />
@@ -23,7 +28,7 @@ const HomeLayout = () => {
           <div className="row">
             <div className="col-lg-8">
               <div className="row">
-                <Content1 title="Featured News" />
+                <Content1 title={translations[language as "en" | "vi"].featuredNews} />
                 <Content2 />
                 <Content3 />
               </div>

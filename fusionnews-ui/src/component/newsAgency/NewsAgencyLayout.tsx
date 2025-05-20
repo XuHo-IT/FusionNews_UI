@@ -9,12 +9,17 @@ import Content2 from "../content/Content2";
 import Content3 from "../content/Content3";
 import "./category.css";
 import DemoContent1 from "./DemoContent1";
+import { useSelector } from "react-redux";
+import { RootState } from "redux/store";
+import { translations } from "helpers/languageMap";
 
 interface NewsAgencyLayout {
   inpuSearch: string;
 }
 
 const NewsAgencyLayout: React.FC<NewsAgencyLayout> = ({ inpuSearch }) => {
+  const language = useSelector((state: RootState) => state.language.language);
+
   return (
     <>
       <div className="container-fluid mt-5 pt-3">
@@ -23,7 +28,7 @@ const NewsAgencyLayout: React.FC<NewsAgencyLayout> = ({ inpuSearch }) => {
             <div className="col-lg-8">
               <div className="row">
                 <DemoContent1
-                  title="Top 5 News Agency"
+                  title={translations[language as "en" | "vi"].hotNews}
                   inpuSearch={inpuSearch}
                 />
                 {/* <Content1 title="Top 10 News Agency"/>
@@ -37,7 +42,7 @@ const NewsAgencyLayout: React.FC<NewsAgencyLayout> = ({ inpuSearch }) => {
               <Advertisement />
               {/* <Trending /> */}
               <NewsLetter />
-              <Tags />
+              {/* <Tags /> */}
             </div>
           </div>
         </div>
